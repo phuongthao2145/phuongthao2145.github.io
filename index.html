@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Họ tên - MSSV - Đề</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+
+<body>
+    <div class="left-nav">
+        <h1>X-stitch</h1>
+        <label for="color">Color:</label>
+        <input type="color" id="color" class="form-control">
+        <br>
+        <label for="stitch">Stitch:</label>
+        <button class="btn-stitch btn btn-sm btn-warning">&times;</button>
+        <button class="btn-stitch btn btn-sm btn-outline-secondary">&hearts;</button>
+        <button class="btn-stitch btn btn-sm btn-outline-secondary">&#9632;</button>
+
+        <div class="info mt-5">
+            <b>Họ Tên - MSSV</b> | FE1 FIT-TDC 2022
+        </div>
+    </div>
+    <div class="canvas">
+        <div class="box"></div>
+    </div>
+
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/init.js"></script>
+    <script>
+        const color = document.querySelector("#color");
+        const stitch = document.querySelectorAll(".btn-stitch");
+        const box = document.querySelectorAll(".box");
+        let icon = document.querySelector(".btn-stitch").textContent;
+        let c = "000000";
+        color.addEventListener("change", function () {
+            c = this.value;
+        })
+        stitch.forEach(function (item) {
+            item.addEventListener("click", function () {
+                icon = item.textContent;
+                stitch.forEach(function (item) {
+                    if (item.textContent == icon) {
+                        item.classList.add("btn-warning");
+                        item.classList.remove("btn-outline-secondary");
+                    }
+                    else {
+                        item.classList.remove("btn-warning");
+                        item.classList.add("btn-outline-secondary");
+                    }
+                })
+            })
+        })
+        box.forEach(function (item) {
+            item.addEventListener("click", function () {
+                item.innerHTML = "<div class='stitch'>" + icon + "</div>";
+                item.style.color = c;
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+body {background: #333;}
+.box {
+    color: #000;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    float: left;
+    z-index: 10;
+    cursor: pointer;
+    overflow: hidden;
+}
+.box::before {
+    content: '';
+    position: absolute;
+    height: 18px;
+    left: 0;
+    right: 0;
+    top: 1px;
+    background: #fdfbf7;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
+    z-index: 0;
+}
+.box::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    top: 0;
+    bottom: 0;
+    left: 1px;
+    background: #fdfbf7;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
+    z-index: 0;
+}
+.stitch {
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    right: -1px;
+    bottom: -2px;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 23px;
+    text-align: center;
+}
+.canvas {
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.left-nav {
+    background: #f0f0f0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+    padding: 15px;
+}
+.left-nav .btn {font-weight: bold;}
+.info {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    font-size: .9em;
+}
